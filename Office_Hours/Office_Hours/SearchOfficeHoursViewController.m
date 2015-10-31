@@ -104,10 +104,39 @@
     artur.imageString = @"arturlan";
     artur.borough = @"Queens";
     artur.officeName = @"Red Pipe Cafe";
+    artur.officeHours = @"Fridays 5 to 7pm";
     artur.officeLocation = @"71-60 Austin St, Forest Hills, NY 11375";
     artur.bio = @"Hi, I'm Artur. I can help you with Objective-C and C++";
     artur.expertLanguage = @"Javascript";
     [self.allTutors addObject:artur];
+    
+    Tutor *derek = [[Tutor alloc]init];
+    derek.name = @"Derek";
+    derek.imageString = @"dereknetto";
+    derek.borough = @"Queens";
+    derek.officeName = @"Starbucks";
+    derek.officeLocation = @"61-51 188th St, Fresh Meadows, NY 11365";
+    derek.officeHours = @"Mondays 1 to 3pm";
+    derek.expertLanguage = @"Ruby";
+    derek.bio = @"Hey I'm Derek and I want to help you with Ruby! I also know Objective-C and Swift!";
+    [self.allTutors addObject:derek];
+    
+    Tutor *mesfin = [[Tutor alloc]init];
+    mesfin.name = @"Mesfin";
+    mesfin.imageString = @"mesfinmekonnen";
+    mesfin.borough = @"Brooklyn";
+    mesfin.officeName = @"Cafe Madeline";
+    mesfin.officeLocation = @"1603 Cortelyou Rd, Brooklyn, NY 11226";
+    mesfin.officeHours = @"Sundays 12 - 3pm";
+    mesfin.expertLanguage = @"C++";
+    mesfin.bio = @"Hey I'm Mesfin and I want to help you with C++! I also know Objective-C and Swift!";
+    [self.allTutors addObject:mesfin];
+    
+     
+    
+
+    
+    
     
     NSArray *tutorsArray = self.allTutors;
     
