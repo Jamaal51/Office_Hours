@@ -90,7 +90,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ok0-kA-avf">
-                        <barButtonItem key="rightBarButtonItem" title="Register" id="TD7-Tg-VWk">
+                        <barButtonItem key="rightBarButtonItem" title="Log In" id="TD7-Tg-VWk">
                             <connections>
                                 <segue destination="1fK-Yu-zJi" kind="show" id="6Kz-ZQ-ihV"/>
                             </connections>
@@ -101,10 +101,10 @@
             </objects>
             <point key="canvasLocation" x="280" y="337"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="KT3-rW-PhK">
             <objects>
-                <viewController id="1fK-Yu-zJi" sceneMemberID="viewController">
+                <viewController id="1fK-Yu-zJi" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N06-op-MPP"/>
                         <viewControllerLayoutGuide type="bottom" id="WCD-KQ-GzF"/>
@@ -113,17 +113,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="username" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="jSs-JB-mq0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="jSs-JB-mq0">
                                 <rect key="frame" x="190" y="164" width="220" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="jHF-YN-CIg"/>
                                 </constraints>
-                                <color key="textColor" red="0.69716698232323226" green="0.69716698232323226" blue="0.69716698232323226" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7dA-ji-awR">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="7dA-ji-awR">
                                 <rect key="frame" x="190" y="212" width="220" height="30"/>
                                 <animations/>
                                 <constraints>
@@ -131,9 +130,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="z4i-eA-5Lh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O8q-oc-ZcV">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="O8q-oc-ZcV">
                                 <rect key="frame" x="190" y="268" width="220" height="30"/>
                                 <animations/>
                                 <constraints>
@@ -141,20 +140,48 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="jAt-3u-oxt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gxl-jJ-q2G">
+                                <rect key="frame" x="250" y="319" width="100" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="XkX-95-FK3"/>
+                                </constraints>
+                                <state key="normal" title="Register"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrx-Yu-0FH">
+                                <rect key="frame" x="250" y="262" width="100" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Log In"/>
+                                <connections>
+                                    <action selector="login:" destination="1fK-Yu-zJi" eventType="touchUpInside" id="Of3-Rk-v9U"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Gxl-jJ-q2G" firstAttribute="leading" secondItem="jrx-Yu-0FH" secondAttribute="leading" id="8So-aZ-W4v"/>
+                            <constraint firstItem="Gxl-jJ-q2G" firstAttribute="trailing" secondItem="jrx-Yu-0FH" secondAttribute="trailing" id="9B7-fU-kIu"/>
                             <constraint firstItem="jSs-JB-mq0" firstAttribute="top" secondItem="N06-op-MPP" secondAttribute="bottom" constant="100" id="FU9-jI-33W"/>
+                            <constraint firstItem="Gxl-jJ-q2G" firstAttribute="centerX" secondItem="GWG-hN-zIN" secondAttribute="centerX" id="ZXj-Ng-9YT"/>
                             <constraint firstItem="O8q-oc-ZcV" firstAttribute="top" secondItem="7dA-ji-awR" secondAttribute="bottom" constant="26" id="aYQ-nX-s6l"/>
                             <constraint firstItem="7dA-ji-awR" firstAttribute="top" secondItem="jSs-JB-mq0" secondAttribute="bottom" constant="18" id="ifC-LB-TrM"/>
+                            <constraint firstItem="Gxl-jJ-q2G" firstAttribute="top" secondItem="O8q-oc-ZcV" secondAttribute="bottom" constant="21" id="oPz-TT-3Io"/>
                             <constraint firstItem="O8q-oc-ZcV" firstAttribute="centerX" secondItem="GWG-hN-zIN" secondAttribute="centerX" id="uPW-Ag-8bO"/>
                             <constraint firstItem="7dA-ji-awR" firstAttribute="centerX" secondItem="GWG-hN-zIN" secondAttribute="centerX" id="wDD-t7-ndE"/>
+                            <constraint firstItem="jrx-Yu-0FH" firstAttribute="top" secondItem="7dA-ji-awR" secondAttribute="bottom" constant="20" id="x4u-Rc-z2N"/>
                             <constraint firstItem="jSs-JB-mq0" firstAttribute="centerX" secondItem="GWG-hN-zIN" secondAttribute="centerX" id="zOI-lL-TAd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPassword" destination="O8q-oc-ZcV" id="nf5-dD-5P8"/>
+                        <outlet property="login" destination="jrx-Yu-0FH" id="tAM-Dc-XhD"/>
+                        <outlet property="password" destination="7dA-ji-awR" id="Apl-Wu-E4Z"/>
+                        <outlet property="registerUser" destination="Gxl-jJ-q2G" id="Vef-At-kSn"/>
+                        <outlet property="username" destination="jSs-JB-mq0" id="zbd-oH-QCb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ibw-qn-SIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
