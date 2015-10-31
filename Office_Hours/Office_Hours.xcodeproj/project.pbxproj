@@ -116,13 +116,13 @@
 		9A348FBC1BE5036700DA302B /* Office_Hours */ = {
 			isa = PBXGroup;
 			children = (
+				42250C521BE53ADA00ADD9F0 /* Parse */,
 				9A348FC01BE5036700DA302B /* AppDelegate.h */,
 				9A348FC11BE5036700DA302B /* AppDelegate.m */,
 				0BF1610F1BE535210083FE3E /* LoginViewController.h */,
 				0BF161101BE535210083FE3E /* LoginViewController.m */,
 				9A3B1AF71BE5225700BF9A21 /* Tutor.h */,
 				9A3B1AF81BE5225700BF9A21 /* Tutor.m */,
-				42250C521BE53ADA00ADD9F0 /* Parse */,
 				9A3B1AEE1BE5170600BF9A21 /* HomePageViewController.h */,
 				9A3B1AEF1BE5170600BF9A21 /* HomePageViewController.m */,
 				9A3B1AF11BE5172100BF9A21 /* SearchOfficeHoursViewController.h */,

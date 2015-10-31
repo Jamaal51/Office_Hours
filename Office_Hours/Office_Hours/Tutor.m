@@ -21,15 +21,6 @@
     [encoder encodeObject:self.longitude forKey:@"long"];
 }
 
-//@property (nonatomic) NSString *name;
-//@property (nonatomic) NSString *imageString;
-//@property (nonatomic) NSString *borough;
-//@property (nonatomic) NSString *expertLanguage;
-//@property (nonatomic) NSString *officeName;
-//@property (nonatomic) NSString *officeHours;
-//@property (nonatomic) NSString *officeLocation;
-//@property (nonatomic) NSString *bio;
-
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
         //decode properties, other class vars

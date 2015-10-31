@@ -113,59 +113,110 @@
     point.subtitle = @"Looking for some coding help!";
 
     
+    
     [self.mapView addAnnotation:point];
 }
 
 - (void) createModelTutors {
-    
+//1
     Tutor *henna = [[Tutor alloc]init];
     henna.name = @"Henna";
     henna.imageString = @"hennaahmed";
-    henna.officeLocation = @"93-11 101st Ave, Ozone Park, NY";
+    henna.officeLocation = @"Astoria Coffee: 3004 30th St. Astoria, NY 11102";
     henna.bio = @"Hi! I'm Henna. I'm great with Objective-C and Javascript! I'd love to help you out!";
     henna.expertLanguage = @"Objective-C";
+    henna.latitude = @"40.767418";
+    henna.longitude = @"-73.922408";
     [self.allTutors addObject:henna];
-    
+//2
     Tutor *jamaal = [[Tutor alloc] init];
     jamaal.name = @"Jamaal";
     jamaal.imageString = @"jamaalsedayao";
-    jamaal.officeLocation = @"688 Washington Ave, Brooklyn, NY";
+    jamaal.officeLocation = @"Upright Coffee: 860 Manhattan Ave Brooklyn, NY 11222";
     jamaal.bio = @"Hey all! Super pumped to help you with Objective-C and Swift!";
     jamaal.expertLanguage = @"Swift";
+    jamaal.latitude = @"40.729511";
+    jamaal.longitude = @"-73.953594";
     [self.allTutors addObject:jamaal];
-    
-    
+//3
     Tutor *charles = [[Tutor alloc] init];
     charles.name = @"Charles";
     charles.imageString = @"charleskang";
-    charles.officeLocation = @"3610 Broadway, New York, NY 10031";
+    charles.officeLocation = @"Propeller Coffee: 984 Manhattan Ave, Brooklyn, NY 11222";
     charles.bio = @"Charles here ready to answer any Objective-C or Ruby questions for you";
     charles.expertLanguage = @"Objective-C";
+    charles.latitude = @"40.732990";
+    charles.longitude = @"-73.954438";
     [self.allTutors addObject:charles];
-    
+//4
     Tutor *artur = [[Tutor alloc]init];
     artur.name = @"Artur";
     artur.imageString = @"arturlan";
-    artur.officeLocation = @"71-60 Austin St, Forest Hills, NY 11375";
+    artur.officeLocation = @"Cafe Grumpy: 193 Meserole Ave, Brooklyn, NY 11222";
     artur.bio = @"Hi, I'm Artur. I can help you with Objective-C and C++";
-    artur.expertLanguage = @"Javascript";
+    artur.expertLanguage = @"Objective-C";
+    artur.latitude = @"40.728846";
+    artur.longitude = @"-73.948739";
     [self.allTutors addObject:artur];
-    
+//5
     Tutor *derek = [[Tutor alloc]init];
     derek.name = @"Derek";
     derek.imageString = @"dereknetto";
-    derek.officeLocation = @"61-51 188th St, Fresh Meadows, NY 11365";
-    derek.expertLanguage = @"Ruby";
+    derek.officeLocation = @"Ashbox: 1154 Manhattan Ave, Brooklyn, NY 11222";
+    derek.expertLanguage = @"Swift";
     derek.bio = @"Hey I'm Derek and I want to help you with Ruby! I also know Objective-C and Swift!";
+    derek.latitude = @"40.738004";
+    derek.longitude = @"-73.955203";
     [self.allTutors addObject:derek];
-    
+//6
     Tutor *mesfin = [[Tutor alloc]init];
     mesfin.name = @"Mesfin";
     mesfin.imageString = @"mesfinmekonnen";
-    mesfin.officeLocation = @"1603 Cortelyou Rd, Brooklyn, NY 11226";
-    mesfin.expertLanguage = @"C++";
+    mesfin.officeLocation = @"The Queens Kickshaw: 40-17 BROADWAY, ASTORIA, NY, USA";
+    mesfin.expertLanguage = @"Objective-C";
     mesfin.bio = @"Hey I'm Mesfin and I want to help you with C++! I also know Objective-C and Swift!";
+    mesfin.latitude = @"40.759076";
+    mesfin.longitude = @"-73.918225";
     [self.allTutors addObject:mesfin];
+//7
+    Tutor *justine = [[Tutor alloc]init];
+    justine.name = @"Justine";
+    justine.imageString = @"justinekay";
+    justine.officeLocation = @"SweetLeaf LIC: 10-93 Jackson Ave, Long Island City, NY 11101";
+    justine.expertLanguage = @"Objective-C";
+    justine.bio = @"Hey I'm Justine and I'm great with Objective-C! I also know Ruby and Swift!";
+    justine.latitude = @"40.743565";
+    justine.longitude = @" -73.951682";
+    [self.allTutors addObject:justine];
+ //8
+    Tutor *kaira = [[Tutor alloc]init];
+    kaira.name = @"Kaira";
+    kaira.imageString = @"kaira";
+    kaira.officeLocation = @"Sweet Leaf Williamsburg : 135 Kent Ave, New York, NY 11211";
+    kaira.expertLanguage = @"Swift";
+    kaira.bio = @"Hey I'm Kaira and I'm a Swift-master! I'm open to helping!";
+    kaira.latitude = @"40.719815";
+    kaira.longitude = @"-73.962200";
+    [self.allTutors addObject:kaira];
+//9
+    Tutor *shena = [[Tutor alloc]init];
+    shena.name = @"Shena";
+    shena.imageString = @"shenayoshida";
+    shena.officeLocation = @" Budin : 114 Greenpoint Ave, Brooklyn, NY 11222";
+    shena.expertLanguage = @"Objective-C";
+    shena.bio = @"Hi I'm Shena and I'm great at Objective-C! Ask me about it!";
+    shena.latitude = @"40.730045";
+    shena.longitude = @"-73.956161";
+    [self.allTutors addObject:shena];
+//10
+    Tutor *varindra = [[Tutor alloc]init];
+    varindra.name = @"Varinda";
+    varindra.imageString = @"varindrahart";
+    varindra.officeLocation = @"Kinship Coffee Coop.: 30-05 Steinway St, Astoria, NY 11103 ";
+    varindra.expertLanguage = @"Swift";
+    varindra.bio = @"Hi I'm V and I can help you with Swift";
+    varindra.latitude = @"40.763893";
+    varindra.longitude = @"-73.915093";
     
     NSArray *tutorsArray = self.allTutors;
     
@@ -178,6 +229,7 @@
 
 - (IBAction)searchOfficeHours:(UIButton *)sender {
     
+    [self.mapView removeAnnotations:self.mapView.annotations];
     
     NSInteger rowOne = [self.languagePickerView selectedRowInComponent:0];
     NSString *language = [self.languages objectAtIndex:rowOne];
@@ -196,8 +248,16 @@
     for (Tutor *tutors in tutorsArray){
         if ([tutors.expertLanguage isEqual:language]) {
             [self.searchResults addObject:tutors];
+            double latitude = [tutors.latitude doubleValue];
+            double longitude = [tutors.longitude doubleValue];
+            
+            CLLocationCoordinate2D thisLocation = CLLocationCoordinate2DMake(latitude, longitude);
+            MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+            point.coordinate = thisLocation;
+            [self.mapView addAnnotation:point];
         }
     }
+    
     NSLog(@"Tutors: %@",self.searchResults);
     
     
