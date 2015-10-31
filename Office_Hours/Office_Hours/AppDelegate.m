@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
+#import "Student.h"
 
 @interface AppDelegate ()
 
@@ -14,9 +16,23 @@
 
 @implementation AppDelegate
 
+// parse application key
+// rnZZaWcFIDPSXcyAS93w5WTCqGH3mirGOC4TREXw
+
+// parse client id
+// QWQw5t50vTIPamulDmFw3i0VnWOXHILujsttZk7O
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [Parse
+     setApplicationId:@"d4QBKnNptgpeFwOvuSOqPu6DKpd7mo9bmk2WvtYV"
+     clientKey:@"aEplV1YL2sWEtlHKAjx8t4ERBubrXGWCYZGpkCuq"];
+    [PFUser enableRevocableSessionInBackground];
+    
+    [Student registerSubclass];
+    
+    
+    
     return YES;
 }
 
