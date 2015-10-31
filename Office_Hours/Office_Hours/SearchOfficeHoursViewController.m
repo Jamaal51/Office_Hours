@@ -109,13 +109,9 @@
     // Add an annotation
     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
     point.coordinate = userLocation.coordinate;
-<<<<<<< HEAD
     point.title = @"Student";
     point.subtitle = @"Looking for some coding help!";
-=======
-    point.title = @"C4Q HQ!";
-    point.subtitle = @"Where should I go today?";
->>>>>>> d88a4de073ca1cbe74a167b060de52d405864289
+
     
     [self.mapView addAnnotation:point];
 }
