@@ -7,6 +7,7 @@
 //
 
 #import "SearchOfficeHoursViewController.h"
+#import "Tutor.h"
 
 @interface SearchOfficeHoursViewController ()
 @property (strong, nonatomic) IBOutlet UIPickerView *languagePickerView;
@@ -51,7 +52,93 @@
                    @"Queens",
                    @"Staten Island"
                    ];
+    
+    
+    if (self.allTutors == nil){
+        self.allTutors = [[NSMutableArray alloc]init];
+    }
+    
+    [self createModelTutors];
+    
+    NSLog(@"All Tutors: %@",self.allTutors);
 }
+
+- (void) createModelTutors {
+    
+    Tutor *henna = [[Tutor alloc]init];
+    henna.name = @"Henna";
+    henna.imageString = @"hennaahmed";
+    henna.borough = @"Queens";
+    henna.officeName = @"New York City's YMCA";
+    henna.officeHours = @"Thursdays, 2 to 4";
+    henna.officeLocation = @"93-11 101st Ave, Ozone Park, NY";
+    henna.bio = @"Hi! I'm Henna. I'm great with Objective-C and Javascript! I'd love to help you out!";
+    henna.expertLanguage = @"Objective-C";
+    [self.allTutors addObject:henna];
+    
+    Tutor *jamaal = [[Tutor alloc] init];
+    jamaal.name = @"Jamaal";
+    jamaal.imageString = @"jamaalsedayao";
+    jamaal.borough = @"Brooklyn";
+    jamaal.officeName = @"Sit & Wonder";
+    jamaal.officeHours = @"Wednesdays 6 to 8";
+    jamaal.officeLocation = @"688 Washington Ave, Brooklyn, NY";
+    jamaal.bio = @"Hey all! Super pumped to help you with Objective-C and Swift!";
+    jamaal.expertLanguage = @"Swift";
+    [self.allTutors addObject:jamaal];
+    
+    
+    Tutor *charles = [[Tutor alloc] init];
+    charles.name = @"Charles";
+    charles.imageString = @"charleskang";
+    charles.borough = @"Manhattan";
+    charles.officeName = @"The Chipped Cup";
+    charles.officeHours = @"Saturdays 12 - 2";
+    charles.officeLocation = @"3610 Broadway, New York, NY 10031";
+    charles.bio = @"Charles here ready to answer any Objective-C or Ruby questions for you";
+    charles.expertLanguage = @"Objective-C";
+    [self.allTutors addObject:charles];
+    
+    Tutor *artur = [[Tutor alloc]init];
+    artur.name = @"Artur";
+    artur.imageString = @"arturlan";
+    artur.borough = @"Queens";
+    artur.officeName = @"Red Pipe Cafe";
+    artur.officeLocation = @"71-60 Austin St, Forest Hills, NY 11375";
+    artur.bio = @"Hi, I'm Artur. I can help you with Objective-C and C++";
+    artur.expertLanguage = @"Javascript";
+    [self.allTutors addObject:artur];
+}
+
+- (IBAction)searchOfficeHours:(UIButton *)sender {
+
+
+NSInteger rowOne = [self.languagePickerView selectedRowInComponent:0];
+NSString *language = [self.languages objectAtIndex:rowOne];
+
+NSInteger rowTwo = [self.boroPickerView selectedRowInComponent:0];
+NSString *boro = [self.boros objectAtIndex:rowTwo];
+
+self.searchResults = [[NSMutableArray alloc]init];
+
+
+NSLog(@"Language picked: %@", language);
+NSLog(@"Boro picked: %@", boro);
+
+for (Tutor *tutors in self.allTutors){
+    if ([tutors.borough isEqual:boro] && [tutors.expertLanguage isEqual:language]) {
+        [self.searchResults addObject:tutors];
+    }
+}
+NSLog(@"Tutors: %@",self.searchResults);
+
+
+[self.tableView reloadData];
+
+}
+
+
+
 
 
 
@@ -75,6 +162,10 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
     
+    Tutor *thisTutor = self.searchResults[indexPath.row];
+    
+    cell.textLabel.text = thisTutor.name;
+    cell.imageView.image = [UIImage imageNamed:thisTutor.imageString];
     
     return cell;
 }
