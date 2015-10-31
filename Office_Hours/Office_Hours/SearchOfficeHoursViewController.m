@@ -108,6 +108,20 @@
     artur.bio = @"Hi, I'm Artur. I can help you with Objective-C and C++";
     artur.expertLanguage = @"Javascript";
     [self.allTutors addObject:artur];
+    
+    
+    [[NSUserDefaults standardUserDefaults]setObject:self.allTutors forKey:@"tutorArray"];
+    
+    
+  /*
+    NSString *valueToSave = @"someValue";
+    [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"preferenceName"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    to get it back later
+    
+    NSString *savedValue = [[NSUserDefaults standardUserDefaults]
+                            stringForKey:@"preferenceName"];
+   */
 }
 
 - (IBAction)searchOfficeHours:(UIButton *)sender {
@@ -146,9 +160,11 @@ NSLog(@"Tutors: %@",self.searchResults);
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender: DetailViewController *viewController = segue.destinationViewController;
+ NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+ Tutor *tutorPass = self.searchResults[indexPath.row];
+ NSLog(@"Tutor to Pass:%@",tutorPass);
+ viewController.tutorDetail = tutorPass;
 }
 */
 
