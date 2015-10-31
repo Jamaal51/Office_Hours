@@ -25,6 +25,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    //Set Default location to zoom
+    CLLocationCoordinate2D noLocation = CLLocationCoordinate2DMake(40.742436, -73.935376); //Create the CLLocation from user cordinates
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(noLocation, 50000, 50000); //Set zooming level
+    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion]; //add location to map
+    [self.mapView setRegion:adjustedRegion animated:YES]; // create animation zooming
+    
+    // Place Annotation Point
+    MKPointAnnotation *annotation1 = [[MKPointAnnotation alloc] init]; //Setting Sample location Annotation
+    [annotation1 setCoordinate:CLLocationCoordinate2DMake(40.742436, -73.935376)]; //Add cordinates
+    [self.mapView addAnnotation:annotation1];
+    
+    
     //All the delegates
     self.languagePickerView.delegate = self;
     self.languagePickerView.dataSource = self;
@@ -66,7 +81,7 @@
     //mandatory check http://stackoverflow.com/questions/24062509/location-services-not-working-in-ios-8
     
     if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]){
-            [self.locationManager requestAlwaysAuthorization];
+        [self.locationManager requestAlwaysAuthorization];
     }
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]){
         [self.locationManager requestWhenInUseAuthorization];
@@ -79,10 +94,13 @@
     NSString *ourLocationString = [NSString stringWithFormat:@"ll=%f,%f",self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude];
     
     NSLog(@"our current location: %@",ourLocationString);
-
+    
     
     //double latitude = 40.742436;
     //double longitude = -73.935376;
+    
+    // custom map view annotations
+    
 }
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
@@ -91,8 +109,8 @@
     // Add an annotation
     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
     point.coordinate = userLocation.coordinate;
-    point.title = @"Where am I?";
-    point.subtitle = @"I'm here!!!";
+    point.title = @"C4Q HQ!";
+    point.subtitle = @"Where should I go today?";
     
     [self.mapView addAnnotation:point];
 }
@@ -176,44 +194,44 @@
 }
 
 - (IBAction)searchOfficeHours:(UIButton *)sender {
-
-
-NSInteger rowOne = [self.languagePickerView selectedRowInComponent:0];
-NSString *language = [self.languages objectAtIndex:rowOne];
     
     
-NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-NSData *encodedObject = [userDefaults objectForKey:@"tutorsArray"];
-NSArray *tutorsArray = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData: encodedObject];
+    NSInteger rowOne = [self.languagePickerView selectedRowInComponent:0];
+    NSString *language = [self.languages objectAtIndex:rowOne];
     
-//NSLog(@"Tutors Array:%@",tutorsArray);
-
-self.searchResults = [[NSMutableArray alloc]init];
-
-NSLog(@"Language picked: %@", language);
-
-for (Tutor *tutors in tutorsArray){
-    if ([tutors.expertLanguage isEqual:language]) {
-        [self.searchResults addObject:tutors];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject = [userDefaults objectForKey:@"tutorsArray"];
+    NSArray *tutorsArray = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData: encodedObject];
+    
+    //NSLog(@"Tutors Array:%@",tutorsArray);
+    
+    self.searchResults = [[NSMutableArray alloc]init];
+    
+    NSLog(@"Language picked: %@", language);
+    
+    for (Tutor *tutors in tutorsArray){
+        if ([tutors.expertLanguage isEqual:language]) {
+            [self.searchResults addObject:tutors];
+        }
     }
-}
-NSLog(@"Tutors: %@",self.searchResults);
-
-
+    NSLog(@"Tutors: %@",self.searchResults);
+    
+    
 }
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender: DetailViewController *viewController = segue.destinationViewController;
  NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
  Tutor *tutorPass = self.searchResults[indexPath.row];
  NSLog(@"Tutor to Pass:%@",tutorPass);
  viewController.tutorDetail = tutorPass;
-}
-*/
+ }
+ */
 
 #pragma mark - Picker View Data Source
 
@@ -222,12 +240,12 @@ NSLog(@"Tutors: %@",self.searchResults);
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-        return self.languages.count;
+    return self.languages.count;
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-        return self.languages[row];
-
+    return self.languages[row];
+    
 }
 
 
