@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface SearchOfficeHoursViewController : UIViewController
 <
-UITableViewDataSource,
-UITableViewDelegate,
 UIPickerViewDataSource,
-UIPickerViewDelegate
+UIPickerViewDelegate,
+MKMapViewDelegate,
+CLLocationManagerDelegate   
 >
 
 @end

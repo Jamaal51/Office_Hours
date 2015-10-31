@@ -9,16 +9,15 @@
 #import "SearchOfficeHoursViewController.h"
 #import "Tutor.h"
 
+
 @interface SearchOfficeHoursViewController ()
 @property (strong, nonatomic) IBOutlet UIPickerView *languagePickerView;
-@property (strong, nonatomic) IBOutlet UIPickerView *boroPickerView;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
+@property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) NSMutableArray *allTutors;
 @property (nonatomic) NSMutableArray *searchResults;
 @property (nonatomic) NSArray *languages;
-@property (nonatomic) NSArray *boros;
-
 
 @end
 
@@ -27,12 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //All the delegates
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
     self.languagePickerView.delegate = self;
     self.languagePickerView.dataSource = self;
-    self.boroPickerView.dataSource = self;
-    self.boroPickerView.delegate = self;
+    self.mapView.delegate = self;
+    self.locationManager.delegate = self;
     
     self.languages = @[
                        @"Objective-C",
@@ -45,22 +42,59 @@
                        @"C#",
                        @"Python"
                        ];
-    self.boros = @[
-                   @"Brooklyn",
-                   @"Bronx",
-                   @"Manhattan",
-                   @"Queens",
-                   @"Staten Island"
-                   ];
     
     
     if (self.allTutors == nil){
         self.allTutors = [[NSMutableArray alloc]init];
     }
     
+    self.mapView.showsUserLocation = YES;
+    
+    [self setCurrentLocation];
     [self createModelTutors];
     
     //NSLog(@"All Tutors: %@",self.allTutors);
+}
+- (void) setCurrentLocation{
+    //40.742436, -73.935376
+    
+    if (self.locationManager == nil){
+        self.locationManager = [[CLLocationManager alloc]init];
+    }
+    self.locationManager.delegate = self;
+    
+    //mandatory check http://stackoverflow.com/questions/24062509/location-services-not-working-in-ios-8
+    
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]){
+            [self.locationManager requestAlwaysAuthorization];
+    }
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]){
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    
+    [self.locationManager startUpdatingLocation];
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    NSString *ourLocationString = [NSString stringWithFormat:@"ll=%f,%f",self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude];
+    
+    NSLog(@"our current location: %@",ourLocationString);
+
+    
+    //double latitude = 40.742436;
+    //double longitude = -73.935376;
+}
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
+    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    
+    // Add an annotation
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = userLocation.coordinate;
+    point.title = @"Where am I?";
+    point.subtitle = @"I'm here!!!";
+    
+    [self.mapView addAnnotation:point];
 }
 
 - (void) createModelTutors {
@@ -132,12 +166,6 @@
     mesfin.bio = @"Hey I'm Mesfin and I want to help you with C++! I also know Objective-C and Swift!";
     [self.allTutors addObject:mesfin];
     
-     
-    
-
-    
-    
-    
     NSArray *tutorsArray = self.allTutors;
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -152,9 +180,6 @@
 
 NSInteger rowOne = [self.languagePickerView selectedRowInComponent:0];
 NSString *language = [self.languages objectAtIndex:rowOne];
-
-NSInteger rowTwo = [self.boroPickerView selectedRowInComponent:0];
-NSString *boro = [self.boros objectAtIndex:rowTwo];
     
     
 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -166,23 +191,16 @@ NSArray *tutorsArray = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData: en
 self.searchResults = [[NSMutableArray alloc]init];
 
 NSLog(@"Language picked: %@", language);
-NSLog(@"Boro picked: %@", boro);
 
 for (Tutor *tutors in tutorsArray){
-    if ([tutors.borough isEqual:boro] && [tutors.expertLanguage isEqual:language]) {
+    if ([tutors.expertLanguage isEqual:language]) {
         [self.searchResults addObject:tutors];
     }
 }
 NSLog(@"Tutors: %@",self.searchResults);
 
 
-[self.tableView reloadData];
-
 }
-
-
-
-
 
 
 /*
@@ -197,57 +215,19 @@ NSLog(@"Tutors: %@",self.searchResults);
 }
 */
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.searchResults.count;
-}
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
-    
-    Tutor *thisTutor = self.searchResults[indexPath.row];
-    
-    cell.textLabel.text = thisTutor.name;
-    cell.imageView.image = [UIImage imageNamed:thisTutor.imageString];
-    
-    return cell;
-}
-
 #pragma mark - Picker View Data Source
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    if ([pickerView isEqual:self.languagePickerView]){
-        return 1;
-    } else if ([pickerView isEqual:self.boroPickerView]){
-        return 1;
-    } else {
-        return 0;
-    }
+    return 1;
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    
-    
-    if ([pickerView isEqual:self.languagePickerView]){
-        return self.languages.count;;
-    } else if ([pickerView isEqual:self.boroPickerView]){
-        return self.boros.count;
-    } else {
-        return 0;
-    }
+        return self.languages.count;
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    
-    if ([pickerView isEqual:self.languagePickerView]){
         return self.languages[row];
-    } else if ([pickerView isEqual:self.boroPickerView]){
-        return self.boros[row];
-    } else {
-        return 0;
-    }
+
 }
 
 
