@@ -13,6 +13,14 @@
 @end
 
 @implementation CommentViewController
+- (IBAction)post:(UIButton *)sender {
+    NSString *enteredText = self.text.text;
+    PFObject *textObject = [PFObject objectWithClassName:@"Comment"];
+    [textObject setObject:enteredText forKey:@"theText"];
+    [textObject save];
+    self.text.text = @"";
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

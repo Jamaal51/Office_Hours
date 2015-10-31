@@ -24,10 +24,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [Parse enableLocalDatastore];
+    
     [Parse
-     setApplicationId:@"d4QBKnNptgpeFwOvuSOqPu6DKpd7mo9bmk2WvtYV"
-     clientKey:@"aEplV1YL2sWEtlHKAjx8t4ERBubrXGWCYZGpkCuq"];
+     setApplicationId:@"rnZZaWcFIDPSXcyAS93w5WTCqGH3mirGOC4TREXw"
+     clientKey:@"QWQw5t50vTIPamulDmFw3i0VnWOXHILujsttZk7O"];
     [PFUser enableRevocableSessionInBackground];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
     
     [Student registerSubclass];
     
