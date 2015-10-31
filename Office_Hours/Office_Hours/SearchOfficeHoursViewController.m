@@ -64,6 +64,7 @@
     }
     
     self.mapView.showsUserLocation = YES;
+    self.mapView.zoomEnabled = YES;
     
     [self setCurrentLocation];
     [self createModelTutors];
