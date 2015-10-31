@@ -85,14 +85,14 @@
     //double longitude = -73.935376;
 }
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 2000.0, 2000.0);
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
     
     // Add an annotation
     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
     point.coordinate = userLocation.coordinate;
-    point.title = @"Where am I?";
-    point.subtitle = @"I'm here!!!";
+    point.title = @"Student";
+    point.subtitle = @"Looking for some coding help!";
     
     [self.mapView addAnnotation:point];
 }
@@ -102,9 +102,6 @@
     Tutor *henna = [[Tutor alloc]init];
     henna.name = @"Henna";
     henna.imageString = @"hennaahmed";
-    henna.borough = @"Queens";
-    henna.officeName = @"New York City's YMCA";
-    henna.officeHours = @"Thursdays, 2 to 4";
     henna.officeLocation = @"93-11 101st Ave, Ozone Park, NY";
     henna.bio = @"Hi! I'm Henna. I'm great with Objective-C and Javascript! I'd love to help you out!";
     henna.expertLanguage = @"Objective-C";
@@ -113,9 +110,6 @@
     Tutor *jamaal = [[Tutor alloc] init];
     jamaal.name = @"Jamaal";
     jamaal.imageString = @"jamaalsedayao";
-    jamaal.borough = @"Brooklyn";
-    jamaal.officeName = @"Sit & Wonder";
-    jamaal.officeHours = @"Wednesdays 6 to 8";
     jamaal.officeLocation = @"688 Washington Ave, Brooklyn, NY";
     jamaal.bio = @"Hey all! Super pumped to help you with Objective-C and Swift!";
     jamaal.expertLanguage = @"Swift";
@@ -125,9 +119,6 @@
     Tutor *charles = [[Tutor alloc] init];
     charles.name = @"Charles";
     charles.imageString = @"charleskang";
-    charles.borough = @"Manhattan";
-    charles.officeName = @"The Chipped Cup";
-    charles.officeHours = @"Saturdays 12 - 2";
     charles.officeLocation = @"3610 Broadway, New York, NY 10031";
     charles.bio = @"Charles here ready to answer any Objective-C or Ruby questions for you";
     charles.expertLanguage = @"Objective-C";
@@ -136,9 +127,6 @@
     Tutor *artur = [[Tutor alloc]init];
     artur.name = @"Artur";
     artur.imageString = @"arturlan";
-    artur.borough = @"Queens";
-    artur.officeName = @"Red Pipe Cafe";
-    artur.officeHours = @"Fridays 5 to 7pm";
     artur.officeLocation = @"71-60 Austin St, Forest Hills, NY 11375";
     artur.bio = @"Hi, I'm Artur. I can help you with Objective-C and C++";
     artur.expertLanguage = @"Javascript";
@@ -147,10 +135,7 @@
     Tutor *derek = [[Tutor alloc]init];
     derek.name = @"Derek";
     derek.imageString = @"dereknetto";
-    derek.borough = @"Queens";
-    derek.officeName = @"Starbucks";
     derek.officeLocation = @"61-51 188th St, Fresh Meadows, NY 11365";
-    derek.officeHours = @"Mondays 1 to 3pm";
     derek.expertLanguage = @"Ruby";
     derek.bio = @"Hey I'm Derek and I want to help you with Ruby! I also know Objective-C and Swift!";
     [self.allTutors addObject:derek];
@@ -158,10 +143,7 @@
     Tutor *mesfin = [[Tutor alloc]init];
     mesfin.name = @"Mesfin";
     mesfin.imageString = @"mesfinmekonnen";
-    mesfin.borough = @"Brooklyn";
-    mesfin.officeName = @"Cafe Madeline";
     mesfin.officeLocation = @"1603 Cortelyou Rd, Brooklyn, NY 11226";
-    mesfin.officeHours = @"Sundays 12 - 3pm";
     mesfin.expertLanguage = @"C++";
     mesfin.bio = @"Hey I'm Mesfin and I want to help you with C++! I also know Objective-C and Swift!";
     [self.allTutors addObject:mesfin];
