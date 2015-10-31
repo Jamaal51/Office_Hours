@@ -60,7 +60,7 @@
     
     [self createModelTutors];
     
-    NSLog(@"All Tutors: %@",self.allTutors);
+    //NSLog(@"All Tutors: %@",self.allTutors);
 }
 
 - (void) createModelTutors {
@@ -109,19 +109,13 @@
     artur.expertLanguage = @"Javascript";
     [self.allTutors addObject:artur];
     
+    NSArray *tutorsArray = self.allTutors;
     
-    [[NSUserDefaults standardUserDefaults]setObject:self.allTutors forKey:@"tutorArray"];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedDataArray = [NSKeyedArchiver archivedDataWithRootObject:tutorsArray];
+    [userDefaults setObject:encodedDataArray forKey:@"tutorsArray"];
+    [userDefaults synchronize];
     
-    
-  /*
-    NSString *valueToSave = @"someValue";
-    [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"preferenceName"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    to get it back later
-    
-    NSString *savedValue = [[NSUserDefaults standardUserDefaults]
-                            stringForKey:@"preferenceName"];
-   */
 }
 
 - (IBAction)searchOfficeHours:(UIButton *)sender {
@@ -132,14 +126,20 @@ NSString *language = [self.languages objectAtIndex:rowOne];
 
 NSInteger rowTwo = [self.boroPickerView selectedRowInComponent:0];
 NSString *boro = [self.boros objectAtIndex:rowTwo];
+    
+    
+NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+NSData *encodedObject = [userDefaults objectForKey:@"tutorsArray"];
+NSArray *tutorsArray = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData: encodedObject];
+    
+//NSLog(@"Tutors Array:%@",tutorsArray);
 
 self.searchResults = [[NSMutableArray alloc]init];
-
 
 NSLog(@"Language picked: %@", language);
 NSLog(@"Boro picked: %@", boro);
 
-for (Tutor *tutors in self.allTutors){
+for (Tutor *tutors in tutorsArray){
     if ([tutors.borough isEqual:boro] && [tutors.expertLanguage isEqual:language]) {
         [self.searchResults addObject:tutors];
     }
