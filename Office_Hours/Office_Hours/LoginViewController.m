@@ -64,7 +64,7 @@
 - (IBAction)login:(UIButton *)sender {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([self.username.text isEqualToString:@"username"] && [self.password.text isEqualToString:@"password"]) {
+    if ([self.username.text isEqualToString:[defaults objectForKey:@"username"]] && [self.password.text isEqualToString:[defaults objectForKey:@"password"]]) {
         NSLog(@"login credentials accepted");
         [self performSegueWithIdentifier:@"login" sender:self];
     }

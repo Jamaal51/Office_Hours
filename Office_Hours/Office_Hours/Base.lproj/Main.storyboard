@@ -149,6 +149,9 @@
                                     <constraint firstAttribute="width" constant="100" id="XkX-95-FK3"/>
                                 </constraints>
                                 <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="registerUser:" destination="1fK-Yu-zJi" eventType="touchUpInside" id="ElY-va-T9V"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrx-Yu-0FH">
                                 <rect key="frame" x="250" y="262" width="100" height="30"/>
@@ -156,6 +159,13 @@
                                 <state key="normal" title="Log In"/>
                                 <connections>
                                     <action selector="login:" destination="1fK-Yu-zJi" eventType="touchUpInside" id="Of3-Rk-v9U"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rs9-Yh-8Y6">
+                                <rect key="frame" x="554" y="72" width="46" height="30"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="login" id="eZL-ym-iOW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -350,4 +360,7 @@
             <point key="canvasLocation" x="-402" y="323"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="eZL-ym-iOW"/>
+    </inferredMetricsTieBreakers>
 </document>
