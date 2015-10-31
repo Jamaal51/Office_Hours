@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BF161111BE535210083FE3E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF161101BE535210083FE3E /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
 		62C2EE4C9F104A59963C673C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 512DDB1320AF2CC3579513B7 /* libPods.a */; };
 		9A348FBF1BE5036700DA302B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A348FBE1BE5036700DA302B /* main.m */; };
 		9A348FC21BE5036700DA302B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A348FC11BE5036700DA302B /* AppDelegate.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BF1610F1BE535210083FE3E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		0BF161101BE535210083FE3E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		512DDB1320AF2CC3579513B7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		58B5631BF7EFDD3A4FCAACAB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9A348FBA1BE5036600DA302B /* Office_Hours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Office_Hours.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +101,8 @@
 				9A3B1AEF1BE5170600BF9A21 /* HomePageViewController.m */,
 				9A3B1AF11BE5172100BF9A21 /* SearchOfficeHoursViewController.h */,
 				9A3B1AF21BE5172100BF9A21 /* SearchOfficeHoursViewController.m */,
+				0BF1610F1BE535210083FE3E /* LoginViewController.h */,
+				0BF161101BE535210083FE3E /* LoginViewController.m */,
 				9A348FC61BE5036700DA302B /* Main.storyboard */,
 				9A348FCC1BE5036700DA302B /* Assets.xcassets */,
 				9A348FCE1BE5036700DA302B /* LaunchScreen.storyboard */,
@@ -226,6 +231,7 @@
 				9A3B1AF01BE5170600BF9A21 /* HomePageViewController.m in Sources */,
 				9A348FCB1BE5036700DA302B /* Office_Hours.xcdatamodeld in Sources */,
 				9A3B1AF31BE5172100BF9A21 /* SearchOfficeHoursViewController.m in Sources */,
+				0BF161111BE535210083FE3E /* LoginViewController.m in Sources */,
 				9A348FC21BE5036700DA302B /* AppDelegate.m in Sources */,
 				9A348FBF1BE5036700DA302B /* main.m in Sources */,
 			);
