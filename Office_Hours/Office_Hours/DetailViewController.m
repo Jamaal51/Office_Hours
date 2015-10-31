@@ -8,11 +8,19 @@
 
 #import "DetailViewController.h"
 
-@interface DetailViewController ()
+@interface DetailViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @end
 
 @implementation DetailViewController
+- (IBAction)post:(UIButton *)sender {
+    NSString *enteredText = self.text.text;
+    PFObject *textObject = [PFObject objectWithClassName:@"Comment"];
+    [textObject setObject:enteredText forKey:@"theText"];
+    [textObject save];
+    self.text.text = @"";
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +31,24 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    return cell;
+}
+
 
 /*
 #pragma mark - Navigation

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0BF161111BE535210083FE3E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF161101BE535210083FE3E /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0BF1616D1BE57C180083FE3E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF1616C1BE57C180083FE3E /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
-		0BF161701BE57C2C0083FE3E /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF1616F1BE57C2C0083FE3E /* CommentViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0BF161741BE57EBA0083FE3E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF161731BE57EBA0083FE3E /* AudioToolbox.framework */; };
 		0BF161761BE57EC90083FE3E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF161751BE57EC90083FE3E /* CFNetwork.framework */; };
 		0BF161781BE57ED50083FE3E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF161771BE57ED50083FE3E /* CoreGraphics.framework */; };
@@ -40,8 +39,6 @@
 		0BF161101BE535210083FE3E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0BF1616B1BE57C180083FE3E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		0BF1616C1BE57C180083FE3E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		0BF1616E1BE57C2C0083FE3E /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
-		0BF1616F1BE57C2C0083FE3E /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		0BF161731BE57EBA0083FE3E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		0BF161751BE57EC90083FE3E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		0BF161771BE57ED50083FE3E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -173,8 +170,6 @@
 				42250C5A1BE5680C00ADD9F0 /* CustomMapAnnotations.m */,
 				0BF1616B1BE57C180083FE3E /* DetailViewController.h */,
 				0BF1616C1BE57C180083FE3E /* DetailViewController.m */,
-				0BF1616E1BE57C2C0083FE3E /* CommentViewController.h */,
-				0BF1616F1BE57C2C0083FE3E /* CommentViewController.m */,
 				9A348FC61BE5036700DA302B /* Main.storyboard */,
 				9A348FCC1BE5036700DA302B /* Assets.xcassets */,
 				9A348FCE1BE5036700DA302B /* LaunchScreen.storyboard */,
@@ -307,7 +302,6 @@
 				0BF1616D1BE57C180083FE3E /* DetailViewController.m in Sources */,
 				9A348FC21BE5036700DA302B /* AppDelegate.m in Sources */,
 				9A348FBF1BE5036700DA302B /* main.m in Sources */,
-				0BF161701BE57C2C0083FE3E /* CommentViewController.m in Sources */,
 				42250C581BE53AEF00ADD9F0 /* Student.m in Sources */,
 				42250C5B1BE5680C00ADD9F0 /* CustomMapAnnotations.m in Sources */,
 			);
