@@ -8,7 +8,8 @@
 
 #import "SearchOfficeHoursViewController.h"
 #import "Tutor.h"
-#import "DetailViewController.h"
+#import "TutorDetailViewController.h"
+#import "TutorCustomAnnotation.h"
 
 
 @interface SearchOfficeHoursViewController ()
@@ -27,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLog(@"My User: %@",self.myUser);
     
     //Set Default location to zoom
     CLLocationCoordinate2D noLocation = CLLocationCoordinate2DMake(40.742436, -73.935376); //Create the CLLocation from user cordinates
@@ -166,7 +168,7 @@
     derek.imageString = @"dereknetto";
     derek.officeLocation = @"Ashbox: 1154 Manhattan Ave, Brooklyn, NY 11222";
     derek.expertLanguage = @"Swift";
-    derek.bio = @"Hey I'm Derek and I want to help you with Ruby! I also know Objective-C and Swift!";
+    derek.bio = @"Hey I'm Derek and I want to help you with Swift! I also know Javascript and Swift!";
     derek.latitude = @"40.738004";
     derek.longitude = @"-73.955203";
     [self.allTutors addObject:derek];
@@ -176,7 +178,7 @@
     mesfin.imageString = @"mesfinmekonnen";
     mesfin.officeLocation = @"The Queens Kickshaw: 40-17 BROADWAY, ASTORIA, NY, USA";
     mesfin.expertLanguage = @"Objective-C";
-    mesfin.bio = @"Hey I'm Mesfin and I want to help you with C++! I also know Objective-C and Swift!";
+    mesfin.bio = @"Hey I'm Mesfin and I want to help you with Objective-C! I also know C# and Swift!";
     mesfin.latitude = @"40.759076";
     mesfin.longitude = @"-73.918225";
     [self.allTutors addObject:mesfin];
@@ -216,7 +218,7 @@
     varindra.imageString = @"varindrahart";
     varindra.officeLocation = @"Kinship Coffee Coop.: 30-05 Steinway St, Astoria, NY 11103 ";
     varindra.expertLanguage = @"Swift";
-    varindra.bio = @"Hi I'm V and I can help you with Swift";
+    varindra.bio = @"Hi I'm V and I can help you with Swift and most C languages.";
     varindra.latitude = @"40.763893";
     varindra.longitude = @"-73.915093";
     
@@ -254,11 +256,16 @@
             double longitude = [tutors.longitude doubleValue];
             
             CLLocationCoordinate2D thisLocation = CLLocationCoordinate2DMake(latitude, longitude);
-            MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-            point.coordinate = thisLocation;
-            point.title = tutors.name;
-            point.subtitle = tutors.bio;
-            [self.mapView addAnnotation:point];
+//            MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+//            point.coordinate = thisLocation;
+//            point.title = tutors.name;
+//            point.subtitle = tutors.bio;
+//            [self.mapView addAnnotation:point];
+            
+            TutorCustomAnnotation *customAnnotation = [[TutorCustomAnnotation alloc]initWithTitle:[NSString stringWithFormat:@"%@ can help you!",tutors.name] Location:thisLocation];
+            customAnnotation.tutorPass = tutors;
+            customAnnotation.userPass = self.myUser;
+            [self.mapView addAnnotation:customAnnotation];
         }
     }
     
@@ -268,31 +275,57 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] init];
-    pin.tintColor = [UIColor redColor];
-    pin.canShowCallout = YES;
-    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    return pin;
+//    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] init];
+//    pin.tintColor = [UIColor redColor];
+//    pin.canShowCallout = YES;
+//    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//    return pin;
+    
+    if ([annotation isKindOfClass:[TutorCustomAnnotation class]]){
+        TutorCustomAnnotation *myLocation = (TutorCustomAnnotation*)annotation;
+        MKAnnotationView *annotationView = [self.mapView dequeueReusableAnnotationViewWithIdentifier:@"MyCustomAnimation"];
+        if (annotationView == nil){
+            annotationView = myLocation.annotationView;
+        } else {
+            annotationView.annotation = annotation;
+        }
+        return annotationView;
+    } else {
+    return nil;
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-    DetailViewController *dvc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailVCIdentifier"];
-    // pass the tutor to dvc
-    [self.navigationController pushViewController:dvc animated:YES];
+    
+//    [self performSegueWithIdentifier:@"showBarDetails" sender:view];
+   
+    //Tutor *passTutor = [mapView.selectedAnnotations objectAtIndex:0];
+    
+    TutorCustomAnnotation *thisAnnotation = [mapView.selectedAnnotations objectAtIndex:0];
+    
+    TutorDetailViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TutorDetailVC"];
+    
+    //Tutor *thisTutor = (Tutor*)view.annotation;
+    
+    viewController.thisTutor = thisAnnotation.tutorPass;
+    viewController.thisUser = thisAnnotation.userPass;
+    
+    [self.navigationController presentViewController:viewController animated:YES completion:nil];
+
+    
 }
 
 
-/*
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender: DetailViewController *viewController = segue.destinationViewController;
- NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
- Tutor *tutorPass = self.searchResults[indexPath.row];
- NSLog(@"Tutor to Pass:%@",tutorPass);
- viewController.tutorDetail = tutorPass;
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+
+ 
  }
- */
+ 
 
 #pragma mark - Picker View Data Source
 

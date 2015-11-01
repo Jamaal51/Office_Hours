@@ -7,7 +7,10 @@
 //
 
 #import <MapKit/MapKit.h>
+#import "Tutor.h"
 
 @interface CustomMapAnnotations : MKAnnotationView
+
+@property (nonatomic) Tutor *tutorAnnotation;
 
 @end

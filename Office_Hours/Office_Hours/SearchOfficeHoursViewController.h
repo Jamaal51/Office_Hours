@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "User.h"
 
 @interface SearchOfficeHoursViewController : UIViewController
 <
@@ -17,5 +18,7 @@ UIPickerViewDelegate,
 MKMapViewDelegate,
 CLLocationManagerDelegate   
 >
+
+@property (nonatomic) User *myUser;
 
 @end

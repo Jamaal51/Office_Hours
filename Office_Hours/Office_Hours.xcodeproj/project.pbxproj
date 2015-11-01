@@ -32,6 +32,11 @@
 		9A3B1AF91BE5225700BF9A21 /* Tutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1AF81BE5225700BF9A21 /* Tutor.m */; settings = {ASSET_TAGS = (); }; };
 		9A3B1AFB1BE5562200BF9A21 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A3B1AFA1BE5562200BF9A21 /* MapKit.framework */; };
 		9A3B1AFD1BE55C0500BF9A21 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A3B1AFC1BE55C0500BF9A21 /* CoreLocation.framework */; };
+		9A3B1B001BE5C77A00BF9A21 /* TutorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1AFF1BE5C77A00BF9A21 /* TutorDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9A3B1B041BE5D9F300BF9A21 /* TutorCustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1B031BE5D9F300BF9A21 /* TutorCustomAnnotation.m */; settings = {ASSET_TAGS = (); }; };
+		9A3B1B071BE5F2DC00BF9A21 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1B061BE5F2DC00BF9A21 /* User.m */; settings = {ASSET_TAGS = (); }; };
+		9A3B1B0B1BE5F38900BF9A21 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1B0A1BE5F38900BF9A21 /* UserProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9A3B1B0E1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1B0D1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +76,16 @@
 		9A3B1AF81BE5225700BF9A21 /* Tutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tutor.m; sourceTree = "<group>"; };
 		9A3B1AFA1BE5562200BF9A21 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9A3B1AFC1BE55C0500BF9A21 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9A3B1AFE1BE5C77900BF9A21 /* TutorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorDetailViewController.h; sourceTree = "<group>"; };
+		9A3B1AFF1BE5C77A00BF9A21 /* TutorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorDetailViewController.m; sourceTree = "<group>"; };
+		9A3B1B021BE5D9F300BF9A21 /* TutorCustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorCustomAnnotation.h; sourceTree = "<group>"; };
+		9A3B1B031BE5D9F300BF9A21 /* TutorCustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorCustomAnnotation.m; sourceTree = "<group>"; };
+		9A3B1B051BE5F2DC00BF9A21 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		9A3B1B061BE5F2DC00BF9A21 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9A3B1B091BE5F38900BF9A21 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		9A3B1B0A1BE5F38900BF9A21 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		9A3B1B0C1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorOfficeHoursViewController.h; sourceTree = "<group>"; };
+		9A3B1B0D1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorOfficeHoursViewController.m; sourceTree = "<group>"; };
 		C23F7CF598ED520D50611B15 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,18 +173,18 @@
 				42250C521BE53ADA00ADD9F0 /* Parse */,
 				9A348FC01BE5036700DA302B /* AppDelegate.h */,
 				9A348FC11BE5036700DA302B /* AppDelegate.m */,
-				0BF1610F1BE535210083FE3E /* LoginViewController.h */,
-				0BF161101BE535210083FE3E /* LoginViewController.m */,
-				9A3B1AF71BE5225700BF9A21 /* Tutor.h */,
-				9A3B1AF81BE5225700BF9A21 /* Tutor.m */,
+				9A3B1B011BE5C78500BF9A21 /* other vc */,
+				9A3B1B081BE5F2E700BF9A21 /* Classes */,
+				9A3B1B091BE5F38900BF9A21 /* UserProfileViewController.h */,
+				9A3B1B0A1BE5F38900BF9A21 /* UserProfileViewController.m */,
 				9A3B1AEE1BE5170600BF9A21 /* HomePageViewController.h */,
 				9A3B1AEF1BE5170600BF9A21 /* HomePageViewController.m */,
 				9A3B1AF11BE5172100BF9A21 /* SearchOfficeHoursViewController.h */,
 				9A3B1AF21BE5172100BF9A21 /* SearchOfficeHoursViewController.m */,
-				42250C591BE5680C00ADD9F0 /* CustomMapAnnotations.h */,
-				42250C5A1BE5680C00ADD9F0 /* CustomMapAnnotations.m */,
-				0BF1616B1BE57C180083FE3E /* DetailViewController.h */,
-				0BF1616C1BE57C180083FE3E /* DetailViewController.m */,
+				9A3B1AFE1BE5C77900BF9A21 /* TutorDetailViewController.h */,
+				9A3B1AFF1BE5C77A00BF9A21 /* TutorDetailViewController.m */,
+				9A3B1B0C1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.h */,
+				9A3B1B0D1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.m */,
 				9A348FC61BE5036700DA302B /* Main.storyboard */,
 				9A348FCC1BE5036700DA302B /* Assets.xcassets */,
 				9A348FCE1BE5036700DA302B /* LaunchScreen.storyboard */,
@@ -186,6 +201,32 @@
 				9A348FBE1BE5036700DA302B /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9A3B1B011BE5C78500BF9A21 /* other vc */ = {
+			isa = PBXGroup;
+			children = (
+				0BF1610F1BE535210083FE3E /* LoginViewController.h */,
+				0BF161101BE535210083FE3E /* LoginViewController.m */,
+				0BF1616B1BE57C180083FE3E /* DetailViewController.h */,
+				0BF1616C1BE57C180083FE3E /* DetailViewController.m */,
+				42250C591BE5680C00ADD9F0 /* CustomMapAnnotations.h */,
+				42250C5A1BE5680C00ADD9F0 /* CustomMapAnnotations.m */,
+			);
+			name = "other vc";
+			sourceTree = "<group>";
+		};
+		9A3B1B081BE5F2E700BF9A21 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9A3B1AF71BE5225700BF9A21 /* Tutor.h */,
+				9A3B1AF81BE5225700BF9A21 /* Tutor.m */,
+				9A3B1B051BE5F2DC00BF9A21 /* User.h */,
+				9A3B1B061BE5F2DC00BF9A21 /* User.m */,
+				9A3B1B021BE5D9F300BF9A21 /* TutorCustomAnnotation.h */,
+				9A3B1B031BE5D9F300BF9A21 /* TutorCustomAnnotation.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,16 +335,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A3B1B071BE5F2DC00BF9A21 /* User.m in Sources */,
 				9A3B1AF91BE5225700BF9A21 /* Tutor.m in Sources */,
 				9A3B1AF01BE5170600BF9A21 /* HomePageViewController.m in Sources */,
+				9A3B1B001BE5C77A00BF9A21 /* TutorDetailViewController.m in Sources */,
 				9A348FCB1BE5036700DA302B /* Office_Hours.xcdatamodeld in Sources */,
+				9A3B1B0E1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.m in Sources */,
 				9A3B1AF31BE5172100BF9A21 /* SearchOfficeHoursViewController.m in Sources */,
 				0BF161111BE535210083FE3E /* LoginViewController.m in Sources */,
+				9A3B1B041BE5D9F300BF9A21 /* TutorCustomAnnotation.m in Sources */,
 				0BF1616D1BE57C180083FE3E /* DetailViewController.m in Sources */,
 				9A348FC21BE5036700DA302B /* AppDelegate.m in Sources */,
 				9A348FBF1BE5036700DA302B /* main.m in Sources */,
 				42250C581BE53AEF00ADD9F0 /* Student.m in Sources */,
 				42250C5B1BE5680C00ADD9F0 /* CustomMapAnnotations.m in Sources */,
+				9A3B1B0B1BE5F38900BF9A21 /* UserProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
