@@ -37,6 +37,8 @@
 		9A3B1B071BE5F2DC00BF9A21 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1B061BE5F2DC00BF9A21 /* User.m */; settings = {ASSET_TAGS = (); }; };
 		9A3B1B0B1BE5F38900BF9A21 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1B0A1BE5F38900BF9A21 /* UserProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9A3B1B0E1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1B0D1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9A3B1B121BE60BE000BF9A21 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1B101BE60BE000BF9A21 /* CustomTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		9A3B1B131BE60BE000BF9A21 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3B1B111BE60BE000BF9A21 /* CustomTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,9 @@
 		9A3B1B0A1BE5F38900BF9A21 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 		9A3B1B0C1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorOfficeHoursViewController.h; sourceTree = "<group>"; };
 		9A3B1B0D1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorOfficeHoursViewController.m; sourceTree = "<group>"; };
+		9A3B1B0F1BE60BE000BF9A21 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		9A3B1B101BE60BE000BF9A21 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		9A3B1B111BE60BE000BF9A21 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		C23F7CF598ED520D50611B15 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +183,9 @@
 				9A3B1B091BE5F38900BF9A21 /* UserProfileViewController.h */,
 				9A3B1B0A1BE5F38900BF9A21 /* UserProfileViewController.m */,
 				9A3B1AEE1BE5170600BF9A21 /* HomePageViewController.h */,
+				9A3B1B0F1BE60BE000BF9A21 /* CustomTableViewCell.h */,
+				9A3B1B101BE60BE000BF9A21 /* CustomTableViewCell.m */,
+				9A3B1B111BE60BE000BF9A21 /* CustomTableViewCell.xib */,
 				9A3B1AEF1BE5170600BF9A21 /* HomePageViewController.m */,
 				9A3B1AF11BE5172100BF9A21 /* SearchOfficeHoursViewController.h */,
 				9A3B1AF21BE5172100BF9A21 /* SearchOfficeHoursViewController.m */,
@@ -291,6 +299,7 @@
 			files = (
 				9A348FD01BE5036700DA302B /* LaunchScreen.storyboard in Resources */,
 				9A348FCD1BE5036700DA302B /* Assets.xcassets in Resources */,
+				9A3B1B131BE60BE000BF9A21 /* CustomTableViewCell.xib in Resources */,
 				9A348FC81BE5036700DA302B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +358,7 @@
 				9A348FBF1BE5036700DA302B /* main.m in Sources */,
 				42250C581BE53AEF00ADD9F0 /* Student.m in Sources */,
 				42250C5B1BE5680C00ADD9F0 /* CustomMapAnnotations.m in Sources */,
+				9A3B1B121BE60BE000BF9A21 /* CustomTableViewCell.m in Sources */,
 				9A3B1B0B1BE5F38900BF9A21 /* UserProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

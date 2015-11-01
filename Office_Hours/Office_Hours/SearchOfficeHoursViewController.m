@@ -238,7 +238,6 @@
     NSInteger rowOne = [self.languagePickerView selectedRowInComponent:0];
     NSString *language = [self.languages objectAtIndex:rowOne];
     
-    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSData *encodedObject = [userDefaults objectForKey:@"tutorsArray"];
     NSArray *tutorsArray = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData: encodedObject];

@@ -7,6 +7,7 @@
 //
 
 #import "TutorOfficeHoursViewController.h"
+#import "CustomTableViewCell.h"
 
 @interface TutorOfficeHoursViewController ()
 
@@ -45,16 +46,31 @@
     return self.usersComing.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:
-                             indexPath];
+//    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:
+//                             indexPath];
     //cell.textLabel.text = @"Jamaal";
+    
+//CustomCellIdentifier
+    
+
+static NSString *id = @"CustomCellIdentifier";
+        
+    CustomTableViewCell*cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:id];
+    if (cell == nil){
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
     User *thisUser = self.usersComing[indexPath.row];
     
-    cell.textLabel.text = thisUser.name;
-    cell.imageView.image = [UIImage imageNamed:thisUser.imageString];
-    cell.detailTextLabel.text = thisUser.languageLearning;
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@ is coming to office hours!",thisUser.name];
+    cell.customImageView.image = [UIImage imageNamed:thisUser.imageString];
+    cell.languageLabel.text = [NSString stringWithFormat:@"Learning:%@",thisUser.languageLearning];
     
     
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    return 100;
 }
 @end
