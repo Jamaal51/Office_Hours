@@ -8,6 +8,7 @@
 
 #import "SearchOfficeHoursViewController.h"
 #import "Tutor.h"
+#import "DetailViewController.h"
 
 
 @interface SearchOfficeHoursViewController ()
@@ -255,6 +256,8 @@
             CLLocationCoordinate2D thisLocation = CLLocationCoordinate2DMake(latitude, longitude);
             MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
             point.coordinate = thisLocation;
+            point.title = tutors.name;
+            point.subtitle = tutors.bio;
             [self.mapView addAnnotation:point];
         }
     }
@@ -262,6 +265,20 @@
     NSLog(@"Tutors: %@",self.searchResults);
     
     
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] init];
+    pin.tintColor = [UIColor redColor];
+    pin.canShowCallout = YES;
+    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    return pin;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    DetailViewController *dvc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailVCIdentifier"];
+    // pass the tutor to dvc
+    [self.navigationController pushViewController:dvc animated:YES];
 }
 
 
