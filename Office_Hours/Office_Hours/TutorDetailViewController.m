@@ -8,12 +8,14 @@
 
 #import "TutorDetailViewController.h"
 
-@interface TutorDetailViewController ()
+@interface TutorDetailViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *bioLabel;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) NSArray *array;
 @end
 
 @implementation TutorDetailViewController
@@ -32,6 +34,10 @@
     Tutor *tutor = self.thisTutor;
     
     NSLog(@"Tutor Passed: %@",tutor);
+    
+    self.tableView.dataSource = self;
+    [self queryForTable];
+
     // Do any additional setup after loading the view.
 }
 
@@ -49,11 +55,44 @@
     [userDefaults synchronize];
     
 }
+- (IBAction)post:(UIButton *)sender {
+    NSString *enteredText = self.text.text;
+    PFObject *textObject = [PFObject objectWithClassName:@"Comment"];
+    [textObject setObject:enteredText forKey:@"theText"];
+    [textObject save];
+    self.text.text = @"";
+    
+}
 - (IBAction)cancelButtonTapped:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-- (IBAction)paypalButton:(UIButton *)sender {
+
+- (void)queryForTable {
+    PFQuery *query = [PFQuery queryWithClassName:@"Comment"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        self.array = objects;
+        [self.tableView reloadData];
+    }];
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.array.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    cell.textLabel.text = [self.array[indexPath.row] valueForKey:@"theText"];
+    //    cell.textLabel.text = [self.array o]
+    
+    return cell;
+}
+
 
 /*
 #pragma mark - Navigation
