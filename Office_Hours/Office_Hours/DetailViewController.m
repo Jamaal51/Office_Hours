@@ -11,6 +11,7 @@
 @interface DetailViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *like;
 @property (weak, nonatomic) IBOutlet UIButton *red;
+@property (weak, nonatomic) IBOutlet UIButton *commentButton;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *array;
@@ -24,6 +25,11 @@
 - (IBAction)likeRedButton:(UIButton *)sender {
     [self.like setHidden:NO];
     [self.red setHidden:YES];
+}
+- (IBAction)commentButton:(UIButton *)sender {
+    [self.tableView setHidden:NO];
+    [self.commentButton setHidden:NO];
+    [self.text setHidden:NO];
 }
 - (IBAction)post:(UIButton *)sender {
     NSString *enteredText = self.text.text;
@@ -45,6 +51,10 @@
     self.tableView.dataSource = self;
     [self queryForTable];
     [self.red setHidden:YES];
+    
+//    [self.tableView setHidden:YES];
+//    [self.commentButton setHidden:YES];
+//    [self.text setHidden:YES];
 }
 
 - (void)queryForTable {
