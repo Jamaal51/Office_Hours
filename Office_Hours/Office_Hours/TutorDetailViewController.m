@@ -13,9 +13,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *bioLabel;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (nonatomic) UIRefreshControl *refreshControl;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic) NSArray *array;
+@property (nonatomic) NSMutableArray *array;
 @end
 
 @implementation TutorDetailViewController
@@ -37,9 +38,17 @@
     
     self.tableView.dataSource = self;
     [self queryForTable];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
 
     // Do any additional setup after loading the view.
 }
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    // Do your job, when done:
+    [refreshControl endRefreshing];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -60,7 +69,10 @@
     PFObject *textObject = [PFObject objectWithClassName:@"Comment"];
     [textObject setObject:enteredText forKey:@"theText"];
     [textObject save];
+    
+    [self.array insertObject:textObject atIndex:0];
     self.text.text = @"";
+    [self.tableView reloadData];
     
 }
 - (IBAction)cancelButtonTapped:(UIButton *)sender {
@@ -73,6 +85,7 @@
         self.array = objects;
         [self.tableView reloadData];
     }];
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
