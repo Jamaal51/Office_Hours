@@ -9,10 +9,22 @@
 #import "DetailViewController.h"
 
 @interface DetailViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *like;
+@property (weak, nonatomic) IBOutlet UIButton *red;
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) NSArray *array;
 @end
 
 @implementation DetailViewController
+- (IBAction)likeButton:(UIButton *)sender {
+    [self.like setHidden:YES];
+    [self.red setHidden:NO];
+}
+- (IBAction)likeRedButton:(UIButton *)sender {
+    [self.like setHidden:NO];
+    [self.red setHidden:YES];
+}
 - (IBAction)post:(UIButton *)sender {
     NSString *enteredText = self.text.text;
     PFObject *textObject = [PFObject objectWithClassName:@"Comment"];
@@ -22,14 +34,25 @@
     
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if(self = [super initWithCoder:aDecoder]) {
+    }
+    return self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.tableView.dataSource = self;
+    [self queryForTable];
+    [self.red setHidden:YES];
+}
+
+- (void)queryForTable {
+    PFQuery *query = [PFQuery queryWithClassName:@"Comment"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        self.array = objects;
+        [self.tableView reloadData];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -37,14 +60,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.array.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    cell.textLabel.text = [self.array[indexPath.row] valueForKey:@"theText"];
+//    cell.textLabel.text = [self.array o]
     
     return cell;
 }
