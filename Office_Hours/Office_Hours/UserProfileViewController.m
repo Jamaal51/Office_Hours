@@ -23,10 +23,10 @@
     
     self.user = [[User alloc]init];
    
-    self.user.name = @"Lauren McNewbie";
-    self.user.imageString = @"lauren-1";
+    self.user.name = @"Charles Kang";
+    self.user.imageString = @"charleskang";
     self.user.languageLearning = @"Objective-C";
-    self.user.bio = @"Hi I'm Lauren and I'm new to Objective-C. Any help would be greatly appreciated!";
+    self.user.bio = @"I'm a budding iOS developer, learning objective-c and trying to build my own website. I love to learn and I am NEVER late to class";
     self.user.latitude = @"40.742436";
     self.user.longitude = @"-73.935376";
     
