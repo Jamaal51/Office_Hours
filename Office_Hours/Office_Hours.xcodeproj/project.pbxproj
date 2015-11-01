@@ -183,9 +183,6 @@
 				9A3B1B091BE5F38900BF9A21 /* UserProfileViewController.h */,
 				9A3B1B0A1BE5F38900BF9A21 /* UserProfileViewController.m */,
 				9A3B1AEE1BE5170600BF9A21 /* HomePageViewController.h */,
-				9A3B1B0F1BE60BE000BF9A21 /* CustomTableViewCell.h */,
-				9A3B1B101BE60BE000BF9A21 /* CustomTableViewCell.m */,
-				9A3B1B111BE60BE000BF9A21 /* CustomTableViewCell.xib */,
 				9A3B1AEF1BE5170600BF9A21 /* HomePageViewController.m */,
 				9A3B1AF11BE5172100BF9A21 /* SearchOfficeHoursViewController.h */,
 				9A3B1AF21BE5172100BF9A21 /* SearchOfficeHoursViewController.m */,
@@ -233,6 +230,9 @@
 				9A3B1B061BE5F2DC00BF9A21 /* User.m */,
 				9A3B1B021BE5D9F300BF9A21 /* TutorCustomAnnotation.h */,
 				9A3B1B031BE5D9F300BF9A21 /* TutorCustomAnnotation.m */,
+				9A3B1B0F1BE60BE000BF9A21 /* CustomTableViewCell.h */,
+				9A3B1B101BE60BE000BF9A21 /* CustomTableViewCell.m */,
+				9A3B1B111BE60BE000BF9A21 /* CustomTableViewCell.xib */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

@@ -168,7 +168,7 @@
     derek.imageString = @"dereknetto";
     derek.officeLocation = @"Ashbox: 1154 Manhattan Ave, Brooklyn, NY 11222";
     derek.expertLanguage = @"Swift";
-    derek.bio = @"Hey I'm Derek and I want to help you with Swift! I also know Javascript and Swift!";
+    derek.bio = @"Hey I'm Derek and I want to help you with Swift! I also know Javascript and Objective-C!";
     derek.latitude = @"40.738004";
     derek.longitude = @"-73.955203";
     [self.allTutors addObject:derek];
