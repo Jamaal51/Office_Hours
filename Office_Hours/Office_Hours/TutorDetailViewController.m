@@ -52,6 +52,8 @@
 - (IBAction)cancelButtonTapped:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)paypalButton:(UIButton *)sender {
+}
 
 /*
 #pragma mark - Navigation
