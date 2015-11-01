@@ -39,6 +39,7 @@
 		9A3B1B0E1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1B0D1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9A3B1B121BE60BE000BF9A21 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1B101BE60BE000BF9A21 /* CustomTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		9A3B1B131BE60BE000BF9A21 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3B1B111BE60BE000BF9A21 /* CustomTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		9A3B1B161BE6632200BF9A21 /* TutorMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1B151BE6632200BF9A21 /* TutorMapViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,8 @@
 		9A3B1B0F1BE60BE000BF9A21 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		9A3B1B101BE60BE000BF9A21 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		9A3B1B111BE60BE000BF9A21 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		9A3B1B141BE6632200BF9A21 /* TutorMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorMapViewController.h; sourceTree = "<group>"; };
+		9A3B1B151BE6632200BF9A21 /* TutorMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorMapViewController.m; sourceTree = "<group>"; };
 		C23F7CF598ED520D50611B15 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +194,8 @@
 				9A3B1B0C1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.h */,
 				9A3B1B0D1BE5FA7A00BF9A21 /* TutorOfficeHoursViewController.m */,
 				9A348FC61BE5036700DA302B /* Main.storyboard */,
+				9A3B1B141BE6632200BF9A21 /* TutorMapViewController.h */,
+				9A3B1B151BE6632200BF9A21 /* TutorMapViewController.m */,
 				9A348FCC1BE5036700DA302B /* Assets.xcassets */,
 				9A348FCE1BE5036700DA302B /* LaunchScreen.storyboard */,
 				9A348FD11BE5036700DA302B /* Info.plist */,
@@ -354,6 +359,7 @@
 				0BF161111BE535210083FE3E /* LoginViewController.m in Sources */,
 				9A3B1B041BE5D9F300BF9A21 /* TutorCustomAnnotation.m in Sources */,
 				0BF1616D1BE57C180083FE3E /* DetailViewController.m in Sources */,
+				9A3B1B161BE6632200BF9A21 /* TutorMapViewController.m in Sources */,
 				9A348FC21BE5036700DA302B /* AppDelegate.m in Sources */,
 				9A348FBF1BE5036700DA302B /* main.m in Sources */,
 				42250C581BE53AEF00ADD9F0 /* Student.m in Sources */,

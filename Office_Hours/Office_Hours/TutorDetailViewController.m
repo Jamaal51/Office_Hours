@@ -43,7 +43,9 @@
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSData *encodedData = [NSKeyedArchiver archivedDataWithRootObject:self.thisUser];
+    NSData *encodedDateTwo = [NSKeyedArchiver archivedDataWithRootObject:self.thisTutor];
     [userDefaults setObject:encodedData forKey:@"tutee"];
+    [userDefaults setObject:encodedDateTwo forKey:@"tutor"];
     [userDefaults synchronize];
     
 }

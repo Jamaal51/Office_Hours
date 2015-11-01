@@ -8,10 +8,14 @@
 
 #import "TutorOfficeHoursViewController.h"
 #import "CustomTableViewCell.h"
+#import "Tutor.h"
 
 @interface TutorOfficeHoursViewController ()
 
 @property (nonatomic) NSMutableArray *usersComing;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *officeLocation;
 
 @end
 
@@ -25,7 +29,17 @@
    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSData *encodedData = [userDefaults objectForKey:@"tutee"];
+    NSData *encodedDataTwo = [userDefaults objectForKey:@"tutor"];
     User *user = [NSKeyedUnarchiver unarchiveObjectWithData:encodedData];
+    Tutor *tutor = [NSKeyedUnarchiver unarchiveObjectWithData:encodedDataTwo];
+    
+    if (user != nil){
+    self.imageView.image = [UIImage imageNamed:tutor.imageString];
+    self.nameLabel.text = tutor.name;
+    self.officeLocation.text = tutor.officeLocation;
+    } else {
+        nil;
+    }
     
     NSLog(@"Users: %@",user);
     
